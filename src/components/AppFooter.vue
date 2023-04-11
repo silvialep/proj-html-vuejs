@@ -40,8 +40,11 @@ export default {
             footerCredits: 
                 [
                     'Copyright 2012 - 2020',
+                    ' | ',
                     'Avada Theme by ThemeFusion',
+                    ' | ',
                     'All Rights Reserved',
+                    ' | ',
                     'Powered by Wordpress',
                 ]
 
@@ -107,7 +110,7 @@ export default {
                 <FooterNavItem v-for="singleLink in footerLinks" :singleLink="singleLink"></FooterNavItem>
             </div>
             <div class="single-nav">
-                <FooterNavItem v-for="(singleIcon, index) in footerIcons" :singleIcon="singleIcon"></FooterNavItem>
+                <FooterNavItem v-for="singleIcon in footerIcons" :singleIcon="singleIcon"></FooterNavItem>
             </div>
         </div>
         
@@ -115,9 +118,8 @@ export default {
         
     </footer>
     <div id="footer-black-bar">
-        <FooterNavItem v-for="singleLink in footerCredits" :singleLink="singleLink"><i class="fa-regular fa-copyright"></i></FooterNavItem>
-        
-        <!-- <span><i class="fa-regular fa-copyright"></i> Copyright</span> -->
+        <i class="fa-regular fa-copyright"></i>
+        <FooterNavItem v-for="singleLink in footerCredits" :singleLink="singleLink"></FooterNavItem>
     </div>
 </template>
 
@@ -239,6 +241,11 @@ footer {
     height: 80px;
     background-color: rgb(0, 0, 0);
     color: white;
+    font-size: 0.8rem;
+
+    i {
+        font-size: 0.6rem;
+    }
 }
 
 </style>

@@ -47,7 +47,7 @@ export default {
 
         </div>
         <div class="nav-icons">
-            <i class="fa-light fa-bag-shopping"></i>
+            <i class="fa-solid fa-bag-shopping"></i>
             <i class="fa-regular fa-user"></i>
         </div>
 
