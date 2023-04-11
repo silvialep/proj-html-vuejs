@@ -11,6 +11,11 @@ export default {
         }
     },
 
+    props: {
+        singleLink: String,
+        singleIcon: String,
+    },
+
     emits: [
 
     ],
@@ -31,10 +36,16 @@ export default {
 
 <template>
 
+        <div> {{ singleLink }} </div>
+        <i :class="`fa-brands ${singleIcon}`"></i>
+
+
 </template>
 
 <style lang="scss" scoped>
 
 @use "../scss/_variables.scss" as *;
+
+
 
 </style>

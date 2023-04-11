@@ -23,6 +23,27 @@ export default {
                     title: 'Useful links',
                     links: ['My account', 'Orders', 'Checkout', 'Cart'],
                 },
+            
+            footerLinks: 
+                [
+                    'Home', 'About', 'Blog', 'Contact', 'Shop'
+                ],
+
+            footerIcons: 
+                [
+                    'fa-facebook-f',
+                    'fa-twitter',
+                    'fa-instagram',
+                    'fa-youtube',
+                ],
+            
+            footerCredits: 
+                [
+                    'Copyright 2012 - 2020',
+                    'Avada Theme by ThemeFusion',
+                    'All Rights Reserved',
+                    'Powered by Wordpress',
+                ]
 
         }
     },
@@ -81,10 +102,23 @@ export default {
 
         </div>
         <hr>
-        <FooterNavItem></FooterNavItem>
-
-
+        <div class="footer-nav-bar">
+            <div class="single-nav top-nav">
+                <FooterNavItem v-for="singleLink in footerLinks" :singleLink="singleLink"></FooterNavItem>
+            </div>
+            <div class="single-nav">
+                <FooterNavItem v-for="(singleIcon, index) in footerIcons" :singleIcon="singleIcon"></FooterNavItem>
+            </div>
+        </div>
+        
+        
+        
     </footer>
+    <div id="footer-black-bar">
+        <FooterNavItem v-for="singleLink in footerCredits" :singleLink="singleLink"><i class="fa-regular fa-copyright"></i></FooterNavItem>
+        
+        <!-- <span><i class="fa-regular fa-copyright"></i> Copyright</span> -->
+    </div>
 </template>
 
 <style lang="scss" scoped>
@@ -94,13 +128,13 @@ export default {
 footer {
     @include container();
     flex-flow: column nowrap;
+    color: white;
     
     #footer-up {
         @include container();
     
         gap: 30px;
         padding: 80px 0;
-        color: white;
         font-size: 0.9rem;
         
         .footer-list {
@@ -173,6 +207,38 @@ footer {
     hr {
         color: rgb(53, 70, 55);
     }
+
+    .footer-nav-bar {
+        display: flex;
+        flex-flow: column;
+        gap: 30px;
+        padding: 60px 0 100px;
+
+        
+        .single-nav {
+            display: flex;
+            flex-flow: row;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+
+        }
+        .top-nav {
+            gap: 10px;
+            color: rgb(169, 170, 165);
+        }
+    }
+
+}
+
+#footer-black-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    height: 80px;
+    background-color: rgb(0, 0, 0);
+    color: white;
 }
 
 </style>
