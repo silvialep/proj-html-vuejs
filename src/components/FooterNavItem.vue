@@ -3,7 +3,7 @@
 
 export default {
 
-    name: 'AppMain',
+    name: 'FooterNavItem',
 
     data() {
         return {
@@ -30,18 +30,11 @@ export default {
 </script>
 
 <template>
-    <div id="main-container">
 
-    </div>
 </template>
 
 <style lang="scss" scoped>
 
 @use "../scss/_variables.scss" as *;
-
-#main-container {
-    height: 200px;
-    background-color: white;
-}
 
 </style>

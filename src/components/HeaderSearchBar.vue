@@ -7,8 +7,7 @@ export default {
 
     data() {
         return {
-            mainName: 'Avada Pet Supplies',
-            numberCall: ' Call us: 1.800.555.2368',
+            numberCall: '1.800.555.2368',
 
         }
     },
@@ -37,15 +36,14 @@ export default {
 <template>
     <nav>
         <div class="logo">
-            <img src="/logo-symbol.png" alt="Avada logo">
-            <span><strong> {{ mainName }}</strong></span>
+            <img src="/dark-pet-logo.png" alt="Avada logo">
         </div>
         <div class="search-bar">
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" placeholder="Search..." v-model="newSearch">
         </div>
         <div class="questions">
-            <span><strong>Questions?</strong> {{ numberCall }}</span>
+            <span><strong>Questions?</strong> Call us: {{ numberCall }}</span>
 
         </div>
         <div class="nav-icons">

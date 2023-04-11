@@ -3,7 +3,7 @@
 
 export default {
 
-    name: 'HeaderNavBar',
+    name: 'NavBarItem',
 
     data() {
         return {

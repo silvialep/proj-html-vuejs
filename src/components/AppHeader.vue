@@ -1,6 +1,6 @@
 <script>
 
-import HeaderNavBar from "./HeaderNavBar.vue";
+import NavBarItem from "./NavBarItem.vue";
 import HeaderSearchBar from "./HeaderSearchBar.vue";
 
 export default {
@@ -9,7 +9,7 @@ export default {
 
     data() {
         return {
-
+            
         }
     },
 
@@ -22,7 +22,7 @@ export default {
     ],
 
     components: {
-        HeaderNavBar,
+        NavBarItem,
         HeaderSearchBar,
     },
 
@@ -41,7 +41,7 @@ export default {
     <header>
         <HeaderSearchBar></HeaderSearchBar>
         <hr>
-        <HeaderNavBar></HeaderNavBar>
+        <NavBarItem></NavBarItem>
         
 
     </header>
