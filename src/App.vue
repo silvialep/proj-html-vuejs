@@ -60,6 +60,7 @@ export default {
   position: fixed;
   bottom: -0.5%;
   right: 3%;
+  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;

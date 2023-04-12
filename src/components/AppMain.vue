@@ -34,7 +34,7 @@ export default {
 </script>
 
 <template>
-    <div id="main-container">
+    <div class="main-container">
 
         <AppJumbo></AppJumbo>
 
@@ -47,7 +47,7 @@ export default {
 
 @use "../scss/_variables.scss" as *;
 
-#main-container {
+.main-container {
     // height: 200px;
     background-color: white;
 }

@@ -50,7 +50,7 @@ export default {
 
         <div class="jumbo-nav" v-if="isJumbo == true">
             <i :class="`fa-solid ${jumboLink.icon}`"></i>
-            <span> {{ jumboLink.text }} </span>
+            <span v-html="jumboLink.text"></span>
         </div>
 
 

@@ -181,10 +181,7 @@ footer {
             background-color: rgb(38, 66, 41);
             border-radius: 10px;
             padding: 30px;
-            background-image: url('/bg-transparent-3.png');
-            background-position: top;
-            background-size: contain;
-            background-repeat: no-repeat;
+            @include background-image();
     
             .links-title {
                 line-height: 1.8rem;
@@ -201,7 +198,7 @@ footer {
     
             button {
                 @include button();
-                @include button_tertiary();
+                @include button-tertiary();
             }
         }
     }

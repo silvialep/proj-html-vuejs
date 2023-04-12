@@ -18,11 +18,11 @@ export default {
                 },
                 {
                     icon: 'fa-clock',
-                    text: 'See our store hours and services',
+                    text: 'See our <strong>store hours</strong> and services',
                 },
                 {
                     icon: 'fa-check',
-                    text: 'We price match to give you the best deals',
+                    text: 'We price match to give you the <strong>best deals</strong>',
                 },
             ],
 
@@ -66,6 +66,14 @@ export default {
 
 <template>
     <div id="jumbo">
+        <div class="square first-square">
+            <i class="fa-solid fa-id-card-clip"></i>
+            <span>Demos</span>
+        </div>
+        <div class="square second-square">
+            <span><small>$</small><strong>39</strong></span>
+            <span>On sale</span>
+        </div>
         <div id="jumbo-nav-bar">
             <NavBarItem v-for="jumboLink in jumboLinks" :jumboLink="jumboLink" :isJumbo="true"></NavBarItem>
         </div>
@@ -89,6 +97,7 @@ export default {
 @use "../scss/_variables.scss" as *;
 
 #jumbo {
+    position: relative;
     min-height: 500px;
     background-color: $primary;
     background-image: url('/bg-transparent-3.png');
@@ -97,6 +106,43 @@ export default {
     background-position: top;
     background-repeat: repeat;
     background-size: 15%;
+
+    .square {
+        content: '';
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        width: 65px;
+        height: 65px;
+        position: absolute;
+        right: 2%;
+        background-color: white;
+        border-radius: 8px;
+        font-family: sans-serif;
+
+        &.first-square {
+            top: 2%;
+
+        }
+
+        &.second-square {
+            top: 12%;
+
+            strong {
+                font-size: 2rem;
+                color: rgb(101, 188, 123);
+            }
+
+            small {
+                font-size: 1.1rem;
+                font-weight: bold;
+                vertical-align: top;
+                color: rgb(101, 188, 123);
+            }
+        }
+
+    }
 
     .dog-image {
         background-image: url('/dog-walk.jpg');
@@ -122,6 +168,7 @@ export default {
         height: 60px;
         color: rgb(179, 183, 172);
         font-size: 0.8rem;
+
     }
 
     #jumbo-bottom-bar {
