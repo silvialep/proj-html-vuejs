@@ -177,7 +177,7 @@ export default {
 
         justify-content: center;
         color: white;
-        height: 100px;
+        height: 120px;
     }
 }
 

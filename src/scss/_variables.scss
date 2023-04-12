@@ -1,6 +1,7 @@
 $primary: rgb(30, 49, 32);
-$secondary: rgb(30, 49, 32);
+// $secondary: rgb(30, 49, 32);
 $tertiary: rgb(61, 111, 66);
+$linkColor: rgb(242, 243, 242);
 
 @mixin container() {
     display: flex;

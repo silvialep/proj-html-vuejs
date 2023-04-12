@@ -2,6 +2,7 @@
 
 import AppJumbo from './AppJumbo.vue';
 import TopMainSection from './TopMainSection.vue';
+import CentralMainSection from './CentralMainSection.vue';
 
 export default {
 
@@ -20,6 +21,7 @@ export default {
     components: {
         AppJumbo,
         TopMainSection,
+        CentralMainSection,
     },
 
 
@@ -40,6 +42,8 @@ export default {
 
         <TopMainSection></TopMainSection>
         
+        <CentralMainSection></CentralMainSection>
+
     </div>
 </template>
 

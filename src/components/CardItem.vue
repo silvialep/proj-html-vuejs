@@ -29,6 +29,7 @@ export default {
         isFood: Boolean,
         isItemsTitle: Boolean,
         isOnlyItems: Boolean,
+        isTestimonials: Boolean,
     },
 
     emits: [
@@ -50,8 +51,10 @@ export default {
 </script>
 
 <template>
-    <div v-if="isJumboCard == true" class="card-item">
-        <img :src="img" alt="">
+    <div v-if="isJumboCard == true" class="card-item jumbo-card">
+        <div class="jumbo-image">
+            <img :src="img" alt="">
+        </div>
         <span> {{ text }} </span>
         <a href=""> {{ link }} </a>
     </div>
@@ -75,17 +78,27 @@ export default {
         <img :src="img" alt="">
         <button> {{ button }} </button>
     </div>
+
     <div v-if="isSectionTitle == true" class="card-item section-title">
         <h3> {{ subtitle }} </h3>
         <h2> {{ title }} </h2>
         <button> {{ button }} </button>
     </div>
+
     <div v-if="isItemsTitle == true" class="card-item items">
         <div class="items-titles">
             <h3> {{ subtitle }} </h3>
             <h2> {{ title }} </h2>
         </div>
         <button> {{ button }} </button>
+    </div>
+
+    <div v-if="isTestimonials == true" class="card-item testimonials">
+        <div class="testimonial-image">
+            <img :src="img" alt="">
+        </div>
+        <p> {{ text }} </p>
+        <span> {{ title }} </span>
     </div>
     
 </template>
@@ -98,14 +111,28 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 
-    img {
-        height: 90%;
-        object-position: bottom;
-    }
+    
+    &.jumbo-card {
+        gap: 40px;
+        height: 100%;
 
-    a {
-        color: rgb(179, 183, 172);
+        .jumbo-image {
+            height: 100%;
+            padding-top: 15px;
+
+            img {
+                height: 100%;
+                object-fit: contain;
+                object-position: bottom;
+            }
+        }
+        
+    
+        a {
+            color: rgb(179, 183, 172);
+        }
     }
     &.jumbo-title {
         flex-flow: column nowrap;
@@ -237,6 +264,38 @@ export default {
             @include button-tertiary();
             width: 200px;
             font-size: 0.9rem;
+        }
+    }
+
+    &.testimonials {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        gap: 20px;
+        width: calc(100% / 3 );
+        padding: 10px;
+        
+        .testimonial-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                object-fit: contain;
+            }
+
+        }
+
+        p {
+            text-align: center;
+            line-height: 1.5rem;
+            color: white;
+        }
+    
+        span {
+            color: rgb(156, 165, 157);
         }
     }
 

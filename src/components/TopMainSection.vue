@@ -1,4 +1,5 @@
 <script>
+
 import CardItem from './CardItem.vue';
 import NavBarItem from './NavBarItem.vue';
 
@@ -184,10 +185,11 @@ export default {
 
             h2 {
                 font-size: 2.5rem;
-
+                font-weight: lighter;
             }
 
             p {
+                font-family: sans-serif;
                 line-height: 2rem;
                 text-align: center;
             }
