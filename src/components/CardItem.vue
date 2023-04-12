@@ -36,7 +36,7 @@ export default {
 </script>
 
 <template>
-    <div class="jumbo-card-item">
+    <div class="card-item">
         <img :src="img" alt="">
         <span> {{ text }} </span>
         <a href=""> {{ link }} </a>
@@ -48,7 +48,7 @@ export default {
 
 @use "../scss/_variables.scss" as *;
 
-.jumbo-card-item {
+.card-item {
     display: flex;
     justify-content: center;
     align-items: center;

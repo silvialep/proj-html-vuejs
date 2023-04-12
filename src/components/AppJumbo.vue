@@ -80,6 +80,7 @@ export default {
     min-height: 500px;
     background-color: $primary;
     background-image: url('/bg-transparent-3.png');
+    backdrop-filter: 1;
     background-attachment: fixed;
     background-position: top;
     background-repeat: repeat;

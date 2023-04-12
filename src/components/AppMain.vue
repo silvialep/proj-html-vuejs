@@ -1,6 +1,7 @@
 <script>
 
 import AppJumbo from './AppJumbo.vue';
+import TopMainSection from './TopMainSection.vue';
 
 export default {
 
@@ -18,6 +19,7 @@ export default {
 
     components: {
         AppJumbo,
+        TopMainSection,
     },
 
 
@@ -33,7 +35,11 @@ export default {
 
 <template>
     <div id="main-container">
+
         <AppJumbo></AppJumbo>
+
+        <TopMainSection></TopMainSection>
+        
     </div>
 </template>
 
