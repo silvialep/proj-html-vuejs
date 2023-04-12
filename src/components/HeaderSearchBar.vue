@@ -1,5 +1,6 @@
 <script>
 
+import NavBarItem from './NavBarItem.vue';
 
 export default {
 
@@ -8,6 +9,10 @@ export default {
     data() {
         return {
             numberCall: '1.800.555.2368',
+            headerIcons: [
+                'fa-bag-shopping',
+                'fa-user',
+            ],
 
         }
     },
@@ -20,6 +25,7 @@ export default {
     ],
 
     components: {
+        NavBarItem,
     },
 
 
@@ -40,15 +46,14 @@ export default {
         </div>
         <div class="search-bar">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Search..." v-model="newSearch">
+            <input type="text" placeholder="Search...">
         </div>
         <div class="questions">
             <span><strong>Questions?</strong> Call us: {{ numberCall }}</span>
 
         </div>
         <div class="nav-icons">
-            <i class="fa-solid fa-bag-shopping"></i>
-            <i class="fa-regular fa-user"></i>
+            <NavBarItem v-for="singleIcon in headerIcons" :singleIcon="singleIcon" :isHeader="true"></NavBarItem>
         </div>
 
     </nav>
@@ -106,7 +111,7 @@ nav {
     .nav-icons {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 15px;
         font-size: 1rem;
     }
 }

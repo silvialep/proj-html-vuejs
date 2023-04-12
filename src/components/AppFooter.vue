@@ -1,6 +1,6 @@
 <script>
 
-import FooterNavItem from "./FooterNavItem.vue";
+import NavBarItem from "./NavBarItem.vue";
 
 export default {
 
@@ -56,7 +56,7 @@ export default {
     ],
 
     components: {
-        FooterNavItem,
+        NavBarItem,
     },
 
 
@@ -107,10 +107,10 @@ export default {
         <hr>
         <div class="footer-nav-bar">
             <div class="single-nav top-nav">
-                <FooterNavItem v-for="singleLink in footerLinks" :singleLink="singleLink"></FooterNavItem>
+                <NavBarItem v-for="singleLink in footerLinks" :singleLink="singleLink" :isLink="true"></NavBarItem>
             </div>
             <div class="single-nav">
-                <FooterNavItem v-for="singleIcon in footerIcons" :singleIcon="singleIcon"></FooterNavItem>
+                <NavBarItem v-for="singleIcon in footerIcons" :singleIcon="singleIcon" :isIcon="true"></NavBarItem>
             </div>
         </div>
         
@@ -119,7 +119,7 @@ export default {
     </footer>
     <div id="footer-black-bar">
         <i class="fa-regular fa-copyright"></i>
-        <FooterNavItem v-for="singleLink in footerCredits" :singleLink="singleLink"></FooterNavItem>
+        <NavBarItem v-for="singleLink in footerCredits" :singleLink="singleLink" :isLink="true"></NavBarItem>
     </div>
 </template>
 
