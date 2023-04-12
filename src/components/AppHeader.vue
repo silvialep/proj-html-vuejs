@@ -82,7 +82,6 @@ export default {
         <!-- <NavBarItem></NavBarItem> -->
         <div class="header-nav-bar">
             <NavBarItem v-for="singleLink in menuLinks" :singleLink="singleLink.title" :isLink="true" :dropDown="singleLink.dropDown"></NavBarItem>
-
         </div>
 
     </header>
@@ -109,7 +108,7 @@ header {
         justify-content: center;
         align-items: center;
         height: 60px;
-        gap: 30px;
+        gap: 40px;
         color: rgb(115, 115, 115);
 
     }

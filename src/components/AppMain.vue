@@ -1,5 +1,6 @@
 <script>
 
+import AppJumbo from './AppJumbo.vue';
 
 export default {
 
@@ -16,6 +17,7 @@ export default {
     ],
 
     components: {
+        AppJumbo,
     },
 
 
@@ -31,7 +33,7 @@ export default {
 
 <template>
     <div id="main-container">
-
+        <AppJumbo></AppJumbo>
     </div>
 </template>
 
@@ -40,7 +42,7 @@ export default {
 @use "../scss/_variables.scss" as *;
 
 #main-container {
-    height: 200px;
+    // height: 200px;
     background-color: white;
 }
 

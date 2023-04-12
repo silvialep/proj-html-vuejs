@@ -222,11 +222,11 @@ footer {
             flex-flow: row;
             justify-content: center;
             align-items: center;
-            gap: 5px;
+            gap: 15px;
 
         }
         .top-nav {
-            gap: 10px;
+            gap: 30px;
             color: rgb(169, 170, 165);
         }
     }
