@@ -100,6 +100,8 @@ nav {
             border: none;
             background-color: rgb(243, 244, 243);
             font-size: 0.8rem;
+            outline: none;
+
         }
     }
 

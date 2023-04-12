@@ -10,12 +10,12 @@ $primary: rgb(30, 49, 32);
 @mixin button() {
     text-align: center;
     padding: 15px;
-    color: white;
     border: none;
     border-radius: 60px;
     font-size: 1rem;
 }
 
 @mixin button_tertiary() {
+    color: white;
     background-color: rgb(61, 111, 66);
 }

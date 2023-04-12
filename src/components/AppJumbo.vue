@@ -32,7 +32,15 @@ export default {
                     text: 'Get $25 OFF your first purchase of our homemade pet food!',
                     link: 'Visit the shop',
                 }
-            ]
+            ],
+
+            jumboTitle: [
+                {
+                    subtitle: 'Find the best animal supplies',
+                    title: 'We know animals are a part of your family, let us help take care of them',
+                    button: 'Learn more about us',
+                }
+            ],
         }
     },
 
@@ -63,10 +71,14 @@ export default {
         </div>
         <!-- <img :src="'/dog-walk.jpg'" alt=""> -->
         <div class="dog-image">
+            <div id="title-container">
+                <CardItem v-for="item in jumboTitle" :subtitle="item.subtitle" :title="item.title" :button="item.button" :isJumboTitle="true"></CardItem>
+
+            </div>
 
         </div>
         <div id="jumbo-bottom-bar">
-            <CardItem v-for="card in jumboCard" :img="card.img" :text="card.text" :link="card.link"></CardItem>
+            <CardItem v-for="card in jumboCard" :img="card.img" :text="card.text" :link="card.link" :isJumboCard="true"></CardItem>
         </div>
     </div>
 
@@ -94,6 +106,12 @@ export default {
         background-position:bottom;
         background-repeat: no-repeat;
         background-size: cover;
+
+        #title-container {
+            @include container();
+
+            padding: 100px 0;
+        }
     }
 
     #jumbo-nav-bar {
