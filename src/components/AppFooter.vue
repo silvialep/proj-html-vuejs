@@ -194,6 +194,7 @@ footer {
                 border: none;
                 border-radius: 60px;
                 margin-bottom: 20px;
+                outline: none;
             }
     
             button {

@@ -145,7 +145,7 @@ export default {
     }
 
     .dog-image {
-        background-image: url('/dog-walk.jpg');
+        background-image: url('/banner-5-2x-scaled.jpg');
         min-height: 500px;
 
         background-attachment: fixed;
@@ -156,6 +156,7 @@ export default {
         #title-container {
             @include container();
 
+            text-shadow: 2px 2px black;
             padding: 100px 0;
         }
     }

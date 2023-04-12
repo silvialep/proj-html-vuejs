@@ -20,10 +20,15 @@ export default {
         button: String,
         category: String,
         list: Number,
+        price: String,
         isJumboCard: Boolean,
         isJumboTitle: Boolean,
+        isSectionTitle: Boolean,
         isProducts: Boolean,
+        isOnlyProducts: Boolean,
         isFood: Boolean,
+        isItemsTitle: Boolean,
+        isOnlyItems: Boolean,
     },
 
     emits: [
@@ -59,7 +64,9 @@ export default {
 
     <div v-if="isProducts == true" class="card-item product-card">
         <img :src="img" alt="">
-        <span> {{ category }} ({{ list }})</span>
+        <span v-if="isOnlyProducts == true"> {{ category }} ({{ list }})</span>
+        <span v-if="isOnlyItems == true"> {{ title }} </span>
+        <small v-if="isOnlyItems == true" v-html="price"></small>
     </div>
 
     <div v-if="isFood == true" class="card-item food-card">
@@ -67,8 +74,20 @@ export default {
         <h4> {{ subtitle }} </h4>
         <img :src="img" alt="">
         <button> {{ button }} </button>
-
     </div>
+    <div v-if="isSectionTitle == true" class="card-item section-title">
+        <h3> {{ subtitle }} </h3>
+        <h2> {{ title }} </h2>
+        <button> {{ button }} </button>
+    </div>
+    <div v-if="isItemsTitle == true" class="card-item items">
+        <div class="items-titles">
+            <h3> {{ subtitle }} </h3>
+            <h2> {{ title }} </h2>
+        </div>
+        <button> {{ button }} </button>
+    </div>
+    
 </template>
 
 <style lang="scss" scoped>
@@ -79,7 +98,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
 
     img {
         height: 90%;
@@ -117,6 +135,15 @@ export default {
     &.product-card {
         flex-flow: column;
         width: calc(100% / 4 - (30px / 4));
+        gap: 20px;
+
+        span {
+            font-size: 1.1rem;
+        }
+
+        small {
+            color: $tertiary;
+        }
 
         img {
             width: 100%;
@@ -129,16 +156,22 @@ export default {
         align-items: center;
         gap: 10px;
         width: calc(100% / 3 - (10px / 3));
-        padding: 60px 30px;
-        background-color: $secondary;
+        padding: 40px;
+        background-color: $primary;
         @include background-image();
-        background-size: 60%;
+        background-size: 70%;
         background-repeat: repeat-x;
 
         h3 {
             color: white;
             font-family: serif;
-            font-size: 2rem;
+            font-size: 2.5rem;
+        }
+
+        h4 {
+            color: $tertiary;
+            padding-top: 20px;
+            font-size: 1.2rem;
         }
 
         img {
@@ -150,6 +183,60 @@ export default {
             @include button();
             @include button-tertiary();
             width: 200px;
+        }
+    }
+
+    &.section-title {
+        height: 100%;
+        flex-flow: column nowrap;
+        gap: 40px;
+        color: white;
+
+        h3 {
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            text-shadow: 2px 2px black;
+        }
+
+        h2 {
+            font-family: serif;
+            font-size: 4rem;
+            text-shadow: 2px 2px black;
+        }
+
+        button {
+            @include button();
+            width: 200px;
+            font-size: 0.8rem;
+
+        }
+    }
+
+    &.items {
+        justify-content: space-between;
+        height: 100%;
+
+        .items-titles {
+            display: flex;
+            flex-flow: column;
+            gap: 20px;
+        }
+
+        h3 {
+            color: $tertiary;
+        }
+
+        h2 {
+            font-family: serif;
+            font-size: 2.5rem;
+            font-weight: lighter;
+        }
+
+        button {
+            @include button();
+            @include button-tertiary();
+            width: 200px;
+            font-size: 0.9rem;
         }
     }
 

@@ -1,5 +1,6 @@
 $primary: rgb(30, 49, 32);
 $secondary: rgb(30, 49, 32);
+$tertiary: rgb(61, 111, 66);
 
 @mixin container() {
     display: flex;
@@ -14,11 +15,12 @@ $secondary: rgb(30, 49, 32);
     border: none;
     border-radius: 60px;
     font-size: 1rem;
+    font-weight: bold;
 }
 
 @mixin button-tertiary() {
     color: white;
-    background-color: rgb(61, 111, 66);
+    background-color: $tertiary;
 }
 
 @mixin background-image() {

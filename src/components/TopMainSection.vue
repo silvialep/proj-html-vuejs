@@ -1,5 +1,6 @@
 <script>
 import CardItem from './CardItem.vue';
+import NavBarItem from './NavBarItem.vue';
 
 
 
@@ -61,6 +62,45 @@ export default {
                     button: 'Shop frozen food',
                 },
             ],
+
+            newArrivals: [
+                {
+                    subtitle: 'Find the best animal supplies',
+                    title: 'New Arrivals weekly',
+                    button: 'Learn more about us',
+                },
+            ],
+
+            itemsSection: [
+                {
+                    subtitle: 'All-time best sellers',
+                    title: 'Items everyone loves',
+                    button: 'View all products',
+                },
+            ],
+
+            itemsCards: [
+                {
+                    image: '/product-21.jpg',
+                    title: 'Transport cage',
+                    price: '$25.00',
+                },
+                {
+                    image: '/product-20.jpg',
+                    title: 'Dog leash',
+                    price: '$25.00',
+                },
+                {
+                    image: '/product-16.jpg',
+                    title: 'Animal transport cage',
+                    price: '<small style="text-decoration: line-through; font-size: 0.5rem">$35.00</small> $25.00',
+                },
+                {
+                    image: '/product-11.jpg',
+                    title: 'Colorful cat leash',
+                    price: '$12.00',
+                },
+            ],
         }
     },
 
@@ -73,7 +113,8 @@ export default {
     ],
 
     components: {
-    CardItem
+    CardItem,
+    NavBarItem
 },
 
 
@@ -95,10 +136,22 @@ export default {
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim excepturi placeat quisquam nobis, deleniti in aliquam recusandae eveniet commodi et possimus minima incidunt tempore neque aliquid dolorem quaerat ad sunt.</p>
             </div>
             <div class="products-cards">
-                <CardItem v-for="product in productsCategories" :list="product.img.length" :category="product.category" :img="product.img[indice]" :isProducts="true"></CardItem>
+                <CardItem v-for="product in productsCategories" :list="product.img.length" :category="product.category" :img="product.img[indice]" :isProducts="true" :isOnlyProducts="true"></CardItem>
             </div>
             <div class="foods-cards">
                 <CardItem v-for="food in foods" :isFood="true" :title="food.title" :subtitle="food.description" :img="food.image" :button="food.button" ></CardItem>
+            </div>
+            <div class="new-arrivals">
+                <div class="new-arr-card">
+                    <CardItem v-for="item in newArrivals" :subtitle="item.subtitle" :title="item.title" :button="item.button" :isSectionTitle="true"></CardItem>
+                </div>
+
+            </div>
+            <div class="items-section">
+                <CardItem v-for="section in itemsSection" :subtitle="section.subtitle" :title="section.title" :button="section.button" :isItemsTitle="true"></CardItem>
+            </div>
+            <div class="item-cards">
+                <CardItem v-for="itemCard in itemsCards" :img="itemCard.image" :title="itemCard.title" :price="itemCard.price" :isProducts="true" :isOnlyItems="true"></CardItem>
             </div>
 
         </div>
@@ -140,11 +193,38 @@ export default {
             }
         }
 
-        .products-cards, .foods-cards {
+        .products-cards, .foods-cards, .item-cards {
             display: flex;
             gap: 10px;
             width: 100%;
             margin-bottom: 100px;
+        }
+
+        .new-arrivals {
+            background-image: url('/banner-3-2x-scaled.jpg');
+            min-height: 500px;
+            background-attachment: fixed;
+            background-position:bottom;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-bottom: 100px;
+
+            .new-arr-card {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                padding-top: 150px;
+            }
+        }
+
+        .items-section {
+            height: 100px;
+            margin-bottom: 50px;
+        }
+
+        .item-cards {
+            gap: 30px;
         }
 
     }
