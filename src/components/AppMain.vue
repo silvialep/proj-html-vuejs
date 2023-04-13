@@ -15,7 +15,7 @@ export default {
     },
 
     emits: [
-
+        
     ],
 
     components: {
@@ -40,7 +40,7 @@ export default {
 
         <AppJumbo></AppJumbo>
 
-        <TopMainSection></TopMainSection>
+        <TopMainSection ></TopMainSection>
         
         <CentralMainSection></CentralMainSection>
 

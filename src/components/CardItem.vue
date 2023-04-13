@@ -51,6 +51,7 @@ export default {
 </script>
 
 <template>
+    <!-- card inserita orizzontalmente alla fine del jumbo -->
     <div v-if="isJumboCard == true" class="card-item jumbo-card">
         <div class="jumbo-image">
             <img :src="img" alt="">
@@ -59,19 +60,28 @@ export default {
         <a href=""> {{ link }} </a>
     </div>
 
+    <!-- card inserita al centro del jumbo, con il titolo principale -->
     <div v-if="isJumboTitle == true" class="card-item jumbo-title">
         <h3> {{ subtitle }} </h3>
         <h1> {{ title }} </h1>
         <button> {{ button }} </button>
     </div>
 
+    <!-- card dei prodotti singoli, riutilizzata nella sezione categories e items -->
     <div v-if="isProducts == true" class="card-item product-card">
         <img :src="img" alt="">
+        <div class="cart-hover" v-if="isOnlyItems == true">
+            <div class="cart-hover-container">
+                <i class="fa-regular fa-square-check"></i>
+            </div>
+            <span class="cart-tag"><a href="">View cart</a></span>
+        </div>
         <span v-if="isOnlyProducts == true"> {{ category }} ({{ list }})</span>
         <span v-if="isOnlyItems == true"> {{ title }} </span>
         <small v-if="isOnlyItems == true" v-html="price"></small>
     </div>
 
+    <!-- card utilizzata per le tipologie di cibo -->
     <div v-if="isFood == true" class="card-item food-card">
         <h3> {{ title }} </h3>
         <h4> {{ subtitle }} </h4>
@@ -79,12 +89,14 @@ export default {
         <button> {{ button }} </button>
     </div>
 
+    <!-- card utilizzata per i new arrivals -->
     <div v-if="isSectionTitle == true" class="card-item section-title">
         <h3> {{ subtitle }} </h3>
         <h2> {{ title }} </h2>
         <button> {{ button }} </button>
     </div>
 
+    <!-- card simile alla precedente, utilizzata prima degli items -->
     <div v-if="isItemsTitle == true" class="card-item items">
         <div class="items-titles">
             <h3> {{ subtitle }} </h3>
@@ -93,6 +105,7 @@ export default {
         <button> {{ button }} </button>
     </div>
 
+    <!-- card utilizzata per i testimonials -->
     <div v-if="isTestimonials == true" class="card-item testimonials">
         <div class="testimonial-image">
             <img :src="img" alt="">
@@ -156,10 +169,17 @@ export default {
             @include button();
             width: 200px;
             font-size: 0.8rem;
+
+            &:hover {
+                background-color: $tertiary;
+                color: white;
+                cursor: pointer;
+            }
         }
     }
 
     &.product-card {
+        position: relative;
         flex-flow: column;
         width: calc(100% / 4 - (30px / 4));
         gap: 20px;
@@ -172,8 +192,50 @@ export default {
             color: $tertiary;
         }
 
+        .cart-hover {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -85%);
+            color: white;
+
+            .cart-hover-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 60px;
+                height: 60px;
+                background-color: rgba(0,0,0,0.8);
+                border-radius: 50%;
+                font-size: 2rem;
+            }
+
+            .cart-tag {
+                text-transform: uppercase;
+                font-size: 0.8rem;
+                
+                a {
+                    text-decoration: none;
+                    color: white;
+
+                }
+            }
+        }
+
         img {
             width: 100%;
+        }
+
+        &:hover .cart-hover {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            gap: 15px;
+        }
+
+        &:hover img {
+            filter: contrast(75%) brightness(60%) sepia(80%);
         }
     }
 
@@ -210,6 +272,17 @@ export default {
             @include button();
             @include button-tertiary();
             width: 200px;
+
+            &:hover {
+                background-color: rgb(42, 84, 42);
+                cursor: pointer;
+
+            }
+        }
+
+        &:hover {
+            transform: scale(1.03);
+            background-color: $foodCard;
         }
     }
 
@@ -235,6 +308,12 @@ export default {
             @include button();
             width: 200px;
             font-size: 0.8rem;
+
+            &:hover {
+                background-color: $tertiary;
+                color: white;
+                cursor: pointer;
+            }
 
         }
     }
@@ -264,7 +343,13 @@ export default {
             @include button-tertiary();
             width: 200px;
             font-size: 0.9rem;
+
+            &:hover {
+                background-color: rgb(42, 84, 42);
+                cursor: pointer;
+            }
         }
+
     }
 
     &.testimonials {

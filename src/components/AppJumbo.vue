@@ -14,15 +14,15 @@ export default {
             jumboLinks: [
                 {
                     icon: 'fa-map',
-                    text: '<strong>International</strong> Shipping Services'
+                    text: '<a href="" style="color: white; font-weight: bold; text-decoration: none">International</a> Shipping Services'
                 },
                 {
                     icon: 'fa-clock',
-                    text: 'See our <strong>store hours</strong> and services',
+                    text: 'See our <a href="" style="color: white; font-weight: bold; text-decoration: none">store hours</a> and services',
                 },
                 {
                     icon: 'fa-check',
-                    text: 'We price match to give you the <strong>best deals</strong>',
+                    text: 'We price match to give you the <a href="" style="color: white; font-weight: bold; text-decoration: none">best deals</a>',
                 },
             ],
 
@@ -170,6 +170,7 @@ export default {
         color: rgb(179, 183, 172);
         font-size: 0.8rem;
 
+        
     }
 
     #jumbo-bottom-bar {
@@ -179,6 +180,7 @@ export default {
         color: white;
         height: 120px;
     }
+
 }
 
 </style>

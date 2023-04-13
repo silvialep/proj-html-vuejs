@@ -109,10 +109,6 @@ export default {
 
     },
 
-    emits: [
-
-    ],
-
     components: {
     CardItem,
     NavBarItem
