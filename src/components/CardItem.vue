@@ -30,6 +30,7 @@ export default {
         isItemsTitle: Boolean,
         isOnlyItems: Boolean,
         isTestimonials: Boolean,
+        isArticles: Boolean,
     },
 
     emits: [
@@ -113,7 +114,18 @@ export default {
         <p> {{ text }} </p>
         <span> {{ title }} </span>
     </div>
-    
+
+    <!-- card utilizzata nella sezione degli articoli -->
+    <div v-if="isArticles == true" class="card-item articles">
+        <img :src="img" alt="">
+        <div class="article-hover">
+                <span class="title"> {{ title }}</span>
+                <span class="section">Tips & Tricks</span>
+        </div>
+        <span> {{ title }} </span>
+        <span class="date"> {{ text }} </span>
+    </div>
+
 </template>
 
 <style lang="scss" scoped>
@@ -381,6 +393,60 @@ export default {
     
         span {
             color: rgb(156, 165, 157);
+        }
+    }
+
+    &.articles {
+        position: relative;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        width: calc(100% / 4 - (30px / 4));
+        gap: 20px;
+
+        img {
+            width: 100%;
+        }
+
+        .article-hover {
+            position: absolute;
+            display: none;
+            width: 100%;
+            height: 100%;
+            color: white;
+            text-align: center;
+            
+            .title {
+                position: absolute;
+                top: 30%;
+                left: 0;
+                width: 100%;
+                font-size: 1.2rem;
+                padding: 0 20px;
+            }
+
+            .section {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 100%;
+                font-size: 0.8rem;
+            }
+            
+        }
+
+        .date {
+            font-size: 0.8rem;
+        }
+
+        &:hover .article-hover {
+            display: inline-block
+            
+        }
+
+
+        &:hover img {
+            filter: contrast(75%) brightness(60%) sepia(80%);
         }
     }
 

@@ -7,7 +7,7 @@ export default {
 
     data() {
         return {
-
+            isActive: false,
         }
     },
 
@@ -20,6 +20,12 @@ export default {
         isHeader: Boolean,
         dropDown: Boolean,
         isJumbo: Boolean,
+    },
+
+    methods: {
+        changeActive() {
+            this.isActive = true;
+        }
     },
 
     emits: [
@@ -42,7 +48,7 @@ export default {
 
 <template>
     <!-- lista di link, riutilizzata nell'header e nel footer -->
-    <div class="nav-link" v-if="isLink == true"> {{ singleLink }} <i class="fa-solid fa-angle-down" v-if="dropDown == true"></i></div>
+    <div @click="changeActive()" :class="isActive == true ? 'active' : ''" class="nav-link" v-if="isLink == true" :isActive="false"> {{ singleLink }} <i class="fa-solid fa-angle-down" v-if="dropDown == true"></i></div>
     
     <!-- lista di icone nel footer -->
     <i :class="`fa-brands ${singleIcon}`" v-if="isIcon == true"></i>
@@ -67,6 +73,18 @@ export default {
     display: flex;
     align-items: center;
     gap: 5px;
+    color: $linkColor;
+    font-weight: bold;
+
+    &:hover {
+        color: black;
+        cursor: pointer;
+    }
+}
+
+.active {
+    color: black;
+
 }
 .jumbo-nav {
     display: flex;

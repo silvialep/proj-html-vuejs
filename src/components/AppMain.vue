@@ -3,6 +3,7 @@
 import AppJumbo from './AppJumbo.vue';
 import TopMainSection from './TopMainSection.vue';
 import CentralMainSection from './CentralMainSection.vue';
+import BottomMainSection from './BottomMainSection.vue';
 
 export default {
 
@@ -22,6 +23,7 @@ export default {
         AppJumbo,
         TopMainSection,
         CentralMainSection,
+        BottomMainSection,
     },
 
 
@@ -44,6 +46,8 @@ export default {
         
         <CentralMainSection></CentralMainSection>
 
+        <BottomMainSection></BottomMainSection>
+        
     </div>
 </template>
 

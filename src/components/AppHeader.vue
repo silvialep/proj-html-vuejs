@@ -56,7 +56,7 @@ export default {
     },
 
     emits: [
-
+        'hovering-links',
     ],
 
     components: {
@@ -109,7 +109,6 @@ header {
         align-items: center;
         height: 60px;
         gap: 40px;
-        color: rgb(115, 115, 115);
 
     }
 }
