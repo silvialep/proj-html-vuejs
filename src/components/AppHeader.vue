@@ -48,26 +48,30 @@ export default {
                 },
 
             ],
+            activeIndex: 0,
+            showMenu: false,
         }
     },
 
-    props: {
+    methods: {
+        changeActive(index) {
+            this.activeIndex = index;
+        },
 
+        changeMenu() {
+            this.showMenu = true;
+            console.log('funge');
+        },
+
+        hideMenu() {
+            this.showMenu = false;
+        }
     },
-
-    emits: [
-        'hovering-links',
-    ],
 
     components: {
         NavBarItem,
         HeaderSearchBar,
     },
-
-
-    computed: {
-    },
-
 
 
 }
@@ -81,7 +85,13 @@ export default {
         <hr>
         <!-- <NavBarItem></NavBarItem> -->
         <div class="header-nav-bar">
-            <NavBarItem v-for="singleLink in menuLinks" :singleLink="singleLink.title" :isLink="true" :dropDown="singleLink.dropDown"></NavBarItem>
+            <ul>
+                <li v-for="(link, index) in menuLinks" :class="activeIndex == index ? 'active' : ''" @click="changeActive(index)"> {{ link.title }} <i class="fa-solid fa-angle-down" @mouseover="changeMenu()" @mouseleave="hideMenu()" v-if="link.dropDown == true"></i>
+                    <!-- <div v-if="showMenu == true && " class="show-menu"></div> -->
+                </li>
+                
+            </ul>
+            <!-- <NavBarItem v-for="singleLink in menuLinks" :singleLink="singleLink.title" :isLink="true" :dropDown="singleLink.dropDown"></NavBarItem> -->
         </div>
 
     </header>
@@ -109,6 +119,34 @@ header {
         align-items: center;
         height: 60px;
         gap: 40px;
+
+        ul {
+            display: flex;
+            gap: 30px;
+            list-style-type: none;
+            color: $linkColor;
+
+            li {
+                position: relative;
+
+                &:hover {
+                    cursor: pointer;
+                    color: black;
+                }
+            }
+
+            li.active {
+                color: black;
+            }
+
+            .show-menu {
+                position: absolute;
+                top: 0;
+                width: 40px;
+                height: 100px;
+                border: 1px solid black;
+            }
+        }
 
     }
 }

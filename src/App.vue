@@ -23,6 +23,11 @@ export default {
     AppFooter,
   },
 
+  methods: {
+    scrollToTop() {
+      window.scrollTo(0, 0);
+    }
+  },
 
   computed: {
   },
@@ -36,7 +41,7 @@ export default {
 <template>
   <div id="main-container">
     <div id="back-to-top-arrow">
-      <i class="fa-solid fa-angle-up"></i>
+      <i @click="scrollToTop()" class="fa-solid fa-angle-up"></i>
     </div>
     <AppHeader></AppHeader>
   
@@ -70,5 +75,9 @@ export default {
   background-color: rgb(46, 46, 46);
   color: white;
 }
+
+#back-to-top-arrow:hover {
+    cursor: pointer;
+  }
 
 </style>

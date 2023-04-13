@@ -7,7 +7,7 @@ export default {
 
     data() {
         return {
-            isActive: false,
+            
         }
     },
 
@@ -24,9 +24,7 @@ export default {
     },
 
     methods: {
-        changeActive() {
-            this.isActive = true;
-        }
+
     },
 
     emits: [
@@ -49,7 +47,7 @@ export default {
 
 <template>
     <!-- lista di link, riutilizzata nell'header e nel footer -->
-    <div @click="changeActive()" :class="isActive == true ? 'active' : ''" class="nav-link" v-if="isLink == true" :isActive="false"> {{ singleLink }} <i class="fa-solid fa-angle-down" v-if="dropDown == true"></i></div>
+    <div class="nav-link" v-if="isLink == true" :isActive="false"> {{ singleLink }} <i class="fa-solid fa-angle-down" v-if="dropDown == true"></i></div>
     
     <!-- lista di icone nel footer -->
     <i :class="`fa-brands ${singleIcon}`" v-if="isIcon == true"></i>
