@@ -78,6 +78,12 @@ export default {
             </div>
             <span class="cart-tag"><a href="">View cart</a></span>
         </div>
+        <div class="category-hover" v-if="isOnlyProducts == true">
+            <div class="category-hover-container">
+                <i class="fa-solid fa-basket-shopping"></i>
+            </div>
+            <span class="category-tag"><a href="">Visit our shop</a></span>
+        </div>
         <span v-if="isOnlyProducts == true"> {{ category }} ({{ list }})</span>
         <span v-if="isOnlyItems == true"> {{ title }} </span>
         <small v-if="isOnlyItems == true" v-html="price"></small>
@@ -240,6 +246,38 @@ export default {
             .cart-tag {
                 text-transform: uppercase;
                 font-size: 0.8rem;
+                font-weight: bold;
+                
+                a {
+                    text-decoration: none;
+                    color: white;
+
+                }
+            }
+        }
+
+        .category-hover {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -85%);
+            color: white;
+
+            .category-hover-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 60px;
+                height: 60px;
+                background-color: rgba(0,0,0,0.8);
+                border-radius: 50%;
+                font-size: 2rem;
+            }
+
+            .category-tag {
+                text-transform: uppercase;
+                font-size: 0.8rem;
                 
                 a {
                     text-decoration: none;
@@ -251,6 +289,13 @@ export default {
 
         img {
             width: 100%;
+        }
+
+        &:hover .category-hover {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            gap: 15px;
         }
 
         &:hover .cart-hover {
