@@ -199,8 +199,12 @@ export default {
         }
 
         .new-arrivals {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background-image: url('/banner-3-2x-scaled.jpg');
             min-height: 500px;
+            width: 100%;
             background-attachment: fixed;
             background-position:bottom;
             background-repeat: no-repeat;
@@ -211,8 +215,8 @@ export default {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                height: 100%;
-                padding-top: 150px;
+                width: 100%;
+                height: 500px;
             }
         }
 

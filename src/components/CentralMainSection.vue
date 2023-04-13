@@ -186,7 +186,7 @@ export default {
                 padding: 20px 0;
 
                 input {
-                    width: 300px;
+                    width: 350px;
                     outline: none;
                     border: none;
                     padding: 20px;
@@ -244,6 +244,11 @@ export default {
         @include button-tertiary();
         width: 200px;
         margin-bottom: 100px;
+
+        &:hover {
+            background-color: rgb(42, 84, 42);
+            cursor: pointer;
+        }
     }
 }
 

@@ -20,6 +20,7 @@ export default {
         isHeader: Boolean,
         dropDown: Boolean,
         isJumbo: Boolean,
+        isMain: Boolean,
     },
 
     methods: {
@@ -62,6 +63,11 @@ export default {
         <span v-html="jumboLink.text"></span>
     </div>
 
+    <!-- lista di icone in fondo alla main section -->
+    <div class="main-nav" v-if="isMain == true">
+        <i :class="`fa-solid ${jumboLink.icon}`"></i>
+        <span v-html="jumboLink.text"></span>
+    </div>
 
 </template>
 
@@ -92,6 +98,23 @@ export default {
     gap: 10px;
 
     
+}
+
+.main-nav {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: white;
+
+    i {
+        font-size: 1.8rem;
+    }
+
+    span {
+        font-size: 0.8rem;
+    }
 }
 
 

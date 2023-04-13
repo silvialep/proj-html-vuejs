@@ -106,6 +106,7 @@ export default {
     background-position: top;
     background-repeat: repeat;
     background-size: 15%;
+    
 
     .square {
         content: '';
@@ -152,9 +153,11 @@ export default {
         background-position:bottom;
         background-repeat: no-repeat;
         background-size: cover;
+        
 
         #title-container {
             @include container();
+
 
             text-shadow: 2px 2px black;
             padding: 100px 0;

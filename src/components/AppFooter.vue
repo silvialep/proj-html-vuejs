@@ -200,6 +200,12 @@ footer {
             button {
                 @include button();
                 @include button-tertiary();
+
+                &:hover {
+                background-color: rgb(42, 84, 42);
+                cursor: pointer;
+
+                }
             }
         }
     }

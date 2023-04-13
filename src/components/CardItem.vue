@@ -31,6 +31,7 @@ export default {
         isOnlyItems: Boolean,
         isTestimonials: Boolean,
         isArticles: Boolean,
+        isNewProducts: Boolean,
     },
 
     emits: [
@@ -126,6 +127,18 @@ export default {
         <span class="date"> {{ text }} </span>
     </div>
 
+    <div v-if="isNewProducts == true" class="card-item new-products">
+        <img :src="img" alt="">
+        <div class="cart-hover">
+            <div class="cart-hover-container">
+                <i class="fa-regular fa-square-check"></i>
+            </div>
+            <span class="cart-tag"><a href="">View cart</a></span>
+        </div>
+        <span> {{ title }} </span>
+        <small v-html="price"></small>
+    </div>
+
 </template>
 
 <style lang="scss" scoped>
@@ -166,6 +179,7 @@ export default {
         width: 50%;
         height: 100%;
         color: white;
+
     
         h1 {
             font-family: 'Times New Roman', Times, serif;
@@ -299,10 +313,12 @@ export default {
     }
 
     &.section-title {
+        width: 100%;
         height: 100%;
         flex-flow: column nowrap;
         gap: 40px;
         color: white;
+        background-color: rgba(0,0,0,0.3);
 
         h3 {
             text-transform: uppercase;
@@ -406,6 +422,7 @@ export default {
 
         img {
             width: 100%;
+
         }
 
         .article-hover {
@@ -440,14 +457,77 @@ export default {
         }
 
         &:hover .article-hover {
-            display: inline-block
-            
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        
+        &:hover img {
+            filter: contrast(75%) brightness(60%) sepia(80%);
+        }
+    }
+
+    &.new-products {
+        position: relative;
+        flex-flow: column;
+        width: calc(100% / 3 - (7px));
+        gap: 20px;
+        margin-bottom: 30px;
+
+        span {
+            font-size: 1.1rem;
         }
 
+        small {
+            color: $tertiary;
+        }
+
+        .cart-hover {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -85%);
+            color: white;
+
+            .cart-hover-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 60px;
+                height: 60px;
+                background-color: rgba(0,0,0,0.8);
+                border-radius: 50%;
+                font-size: 2rem;
+            }
+
+            .cart-tag {
+                text-transform: uppercase;
+                font-size: 0.8rem;
+                
+                a {
+                    text-decoration: none;
+                    color: white;
+
+                }
+            }
+        }
+
+        img {
+            width: 100%;
+        }
+
+        &:hover .cart-hover {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            gap: 15px;
+        }
 
         &:hover img {
             filter: contrast(75%) brightness(60%) sepia(80%);
         }
+    
     }
 
 }
